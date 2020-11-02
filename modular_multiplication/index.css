@@ -1,0 +1,40 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+input:checked ~ div {
+    display: none;
+}
+
+
+.controls {
+    position: absolute;
+    
+    top: 0;
+    right: 0;
+    
+    width: 50vh;
+    height: 50vh;
+    background: #eee;
+}
+
+label[for="hide"] {
+    position: absolute;
+    
+    top: 50vh;
+    right: 0;
+    
+    width: 50vh;
+    background: #eee;
+}
+
+input:checked ~ label {
+    top: 0;
+}
