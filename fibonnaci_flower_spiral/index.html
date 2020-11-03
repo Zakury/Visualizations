@@ -2,18 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
-
-    <link rel="stylesheet" href="index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../project.css">
 </head>
 
 <body>
-    <canvas></canvas>
+	<header>Fibbonaci Flower Spiral</header>
+	<nav>
+		<ul>
+			<li><a href="/boids/">Boids</a></li>
+			<li><a href="/fibonnaci_flower_spiral/">Fibonnaci Flower Spiral</a></li>
+			<li><a href="/modular_multiplication/">Modular Multiplication</a></li>
+			<li><a href="/pi_block_collisions/">PI Block Collisions</a></li>
+			<li><a href="/spirograph/">Spirograph</a></li>
 
-    <script src="index.js"></script>
+		</ul>
+	</nav>
+	<main>
+		<canvas></canvas>
+	</main>
+	<aside>
+        <label for="points">Points</label>
+        <br>
+        <input type="number" id="points">
+        <br>
+        <!-- <button id="pointsAnimation">Start Animation</button> -->
+        <br>
+        <br>
+        <label for="rotation">Rotation Amount</label>
+        <br>
+        <input type="number" id="rotation" step=".00001">
+		<br>   
+	</aside>
+	<footer>Work In Progress</footer>
+
+	<script src="index.js"></script>
 </body>
 
 </html>

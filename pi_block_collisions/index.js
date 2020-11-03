@@ -4,42 +4,7 @@ let ctx = canvas.getContext("2d");
 let collisions = 0;
 
 
-// class Box {
-
-//     tick(dt, other, steps) {
-//         this.x += this.v * (100 / steps) * dt;
-
-
-//         // Collision with wall.
-//         if (this.n == "1" && this.x <= 0 && this.v <= 0) {
-//             this.v = -this.v;
-//             collisions += 1;
-
-//             this.x = 0;
-
-//             if (other.x < 100) {
-//                 other.x = 100;
-//             }
-//         }
-
-//         // Collision with other.
-//         let v1 = this.v;
-//         let v2 = other.v;
-//         let m1 = this.m;
-//         let m2 = other.m;
-        
-//         if (this.n == "1" && this.x + 100 > other.x && this.v >= 0) {
-//             let nv1 = ((m1 - m2) / (m2 + m1) * v1) + ((2 * m2) / (m2 + m1) * v2);
-//             let nv2 = ((2 * m1) / (m2 + m1) * v1) + ((m2 - m1) / (m2 + m1) * v2);
-            
-//             this.v = nv1;
-//             other.v = nv2;
-//             collisions += 1;
-//         }
-//     }
-// }
-
-let digits = 9;
+let digits = 4;
 // let steps = 10000;
 
 let x1 = 100;
@@ -62,8 +27,8 @@ function render() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillRect(x1, 0, 100, 100);
-    ctx.fillRect(x2, 0, 100, 100);
+    ctx.fillRect(x1, (canvas.height / 2) - 50, 100, 100);
+    ctx.fillRect(x2, (canvas.height / 2) - 50, 100, 100);
 
     counter.innerHTML = collisions; 
 }

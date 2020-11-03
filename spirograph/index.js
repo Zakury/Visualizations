@@ -1,20 +1,24 @@
-let canvas1 = document.querySelector(".first");
-let canvas2 = document.querySelector(".second");
-let ctx = canvas1.getContext("2d");
-let ctx2 = canvas2.getContext("2d");
+let canvas = document.querySelector("canvas");
+let ctx = canvas.getContext("2d");
 
-let outerRadius = 96;
-let innerRadius = 45;
+let outerRadius = document.querySelector("#radius2");
+let innerRadius = document.querySelector("#radius1");
+let points = document.querySelector("#points");
+
+outerRadius.value = 10;
+innerRadius.value = 4;
+points.value = 10000;
+
 let radians = 0;
 
 function c(x) { 
-    let smaller = Math.min(canvas1.height, canvas1.width);
-    return (x / Math.max(innerRadius, outerRadius)) * (smaller / 2.5);
+    // let smaller = Math.min(canvas.height, canvas.width);
+    return (x / Math.max(innerRadius.value, outerRadius.value)) * (canvas.height / 2.5);
 }
 
 function drawCircle(x, y, r) {
-    x = c(x) + (canvas1.width / 2);
-    y = c(y) + (canvas1.height / 2);
+    x = c(x) + (canvas.width / 2);
+    y = c(y) + (canvas.height / 2);
     r = c(r);
 
     ctx.beginPath();
@@ -23,10 +27,10 @@ function drawCircle(x, y, r) {
 }
 
 function drawPoint(x, y) {
-    x = c(x) + (canvas1.width / 2);
-    y = c(y) + (canvas1.height / 2);
+    x = c(x) + (canvas.width / 2);
+    y = c(y) + (canvas.height / 2);
 
-    ctx2.fillRect(x - 2, y - 2, 4, 4);
+    ctx.fillRect(x - 2, y - 2, 4, 4);
 }
 
 function rotatePoint(x0, y0, xc, yc, radians) {
@@ -36,30 +40,34 @@ function rotatePoint(x0, y0, xc, yc, radians) {
     return [x1, y1];
 }
 
-function resizecanvas1() {
-    canvas1.width = window.innerWidth;
-    canvas1.height = window.innerHeight;
-}
-canvas2.width = window.innerWidth;
-canvas2.height = window.innerHeight;
-
-function drawcanvas1() {
-    resizecanvas1();
-
-    let [circleX, circleY] = rotatePoint(outerRadius - innerRadius, 0, 0, 0, radians);
-    let [pointX, pointY] = rotatePoint(outerRadius, 0, 0, 0, radians);
-
-    let otherRadians = (outerRadius * radians) / innerRadius;
-    [pointX, pointY] = rotatePoint(pointX, pointY, circleX, circleY, otherRadians);
+function resizecanvas() {
+    let computed = window.getComputedStyle(canvas);
     
-    drawCircle(0, 0, outerRadius);
-    drawCircle(circleX, circleY, innerRadius);
-    drawCircle(pointX, pointY, c(2));
-    drawPoint(pointX, pointY);
-    radians += 0.01;
+    canvas.width = parseInt(computed.getPropertyValue("width"), 10);
+    canvas.height = parseInt(computed.getPropertyValue("height"), 10);
 }
 
-setInterval(drawcanvas1, 1);
+function drawcanvas() {
+    resizecanvas();
+    radians = 0;
+    for (let i = 0; i < points.value; i++) {
+        let [circleX, circleY] = rotatePoint(outerRadius.value - innerRadius.value, 0, 0, 0, radians);
+        let [pointX, pointY] = rotatePoint(outerRadius.value, 0, 0, 0, radians);
 
-window.addEventListener("resize", drawcanvas1);
-window.addEventListener("load", drawcanvas1);
+        let otherRadians = (outerRadius.value * radians) / innerRadius.value;
+        [pointX, pointY] = rotatePoint(pointX, pointY, circleX, circleY, otherRadians);
+        
+        // drawCircle(0, 0, outerRadius.value);
+        // drawCircle(circleX, circleY, innerRadius.value);
+        // drawCircle(pointX, pointY, c(2));
+        drawPoint(pointX, pointY);
+        radians += 0.01;
+    }
+}
+
+innerRadius.addEventListener("input", drawcanvas);
+outerRadius.addEventListener("input", drawcanvas);
+points.addEventListener("input", drawcanvas);
+
+window.addEventListener("resize", drawcanvas);
+window.addEventListener("load", drawcanvas);

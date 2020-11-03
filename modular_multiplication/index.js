@@ -2,7 +2,7 @@
 //     pointsAnimation = document.querySelector("#pointsAnimation"),
     // multiplierAnimationID = null,
     // pointsAnimationID = null,
-var    multiplier = document.querySelector("#multiplier"),
+var multiplier = document.querySelector("#multiplier"),
     points = document.querySelector("#points"),
     canvas = document.querySelector("canvas");
 

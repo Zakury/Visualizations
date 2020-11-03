@@ -2,21 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../project.css">
 </head>
 
 <body>
-    <canvas></canvas>
+	<header>Modular Multiplication</header>
+	<nav>
+		<ul>
+			<li><a href="/boids/">Boids</a></li>
+			<li><a href="/fibonnaci_flower_spiral/">Fibonnaci Flower Spiral</a></li>
+			<li><a href="/modular_multiplication/">Modular Multiplication</a></li>
+			<li><a href="/pi_block_collisions/">PI Block Collisions</a></li>
+			<li><a href="/spirograph/">Spirograph</a></li>
 
-    <input id="hide" type="checkbox" style="display: none;">
-    <label for="hide">Hide Controls</label>
-    <div class="controls">
-        <label for="points">Points</label>
+		</ul>
+	</nav>
+	<main>
+		<canvas></canvas>
+	</main>
+	<aside>        
+		<label for="points">Points</label>
         <br>
         <input type="number" id="points">
         <br>
@@ -26,12 +34,11 @@
         <label for="multiplier">Multiplier</label>
         <br>
         <input type="number" id="multiplier">
-        <br>
-        <!-- <button id="multiplierAnimation">Start Animation</button> -->
-    </div>
-    
-</body>
+		<br>
+	</aside>
+	<footer>Work In Progress</footer>
 
-<script src="index.js"></script>
+	<script src="index.js"></script>
+</body>
 
 </html>

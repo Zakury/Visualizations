@@ -1,9 +1,9 @@
 let canvas = document.querySelector("canvas");
 let ctx = canvas.getContext("2d");
 
-let boidCount = 500;
+let boidCount = 100;
 let boidSpeed = 0.75;
-let visionRadius = 100;
+let visionRadius = 40;
 let avoidRadius = 20;
 let alignmentStrength = 1;
 let cohesionStrength = 1;
@@ -174,8 +174,10 @@ function update() {
 }
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let computed = window.getComputedStyle(canvas);
+    
+    canvas.width = parseInt(computed.getPropertyValue("width"), 10);
+    canvas.height = parseInt(computed.getPropertyValue("height"), 10);
 }
 
 window.addEventListener("load", function() {

@@ -2,19 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
-
-    <link rel="stylesheet" href="index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../project.css">
 </head>
 
 <body>
-    <canvas class="first"></canvas>
-    <canvas class="second"></canvas>
+	<header>Spirograph</header>
+	<nav>
+		<ul>
+			<li><a href="/boids/">Boids</a></li>
+			<li><a href="/fibonnaci_flower_spiral/">Fibonnaci Flower Spiral</a></li>
+			<li><a href="/modular_multiplication/">Modular Multiplication</a></li>
+			<li><a href="/pi_block_collisions/">PI Block Collisions</a></li>
+			<li><a href="/spirograph/">Spirograph</a></li>
 
-    <script src="index.js"></script>
+		</ul>
+	</nav>
+	<main>
+		<canvas></canvas>
+	</main>
+	<aside>
+		<label for="radius1">Inner Radius</label>
+		<br>
+		<input type="number" id="radius1">
+		<br>
+
+		<br>
+		<br>
+		<label for="radius2">Outer Radius</label>
+		<br>
+		<input type="number" id="radius2">
+		<br>
+
+		<br>
+		<br>
+		<label for="points">Points</label>
+		<br>
+		<input type="number" id="points">
+		<br>
+	</aside>
+	<footer>Work In Progress</footer>
+
+	<script src="index.js"></script>
 </body>
 
 </html>
