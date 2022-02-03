@@ -1,3 +1,3 @@
 # Visualizations
 
-https://zakury.github.io/Visualizations/
+https://zacharykaczor.github.io/Visualizations/
